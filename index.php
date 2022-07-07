@@ -11,9 +11,6 @@ if (isset($_POST['sku'])) {
     exit;
 
 }
-//$routes = [];
-//route('/', 'add-product')
-
 ?>
 <html lang="en">
 
