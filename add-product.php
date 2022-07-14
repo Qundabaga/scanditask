@@ -1,9 +1,18 @@
 <?php
 include "product_class.php";
-$addProducts = new Products();
+//$addProducts = new Products();
+$addFurniture = new Furniture();
+$addDVD = new DVD();
+$addBook = new Book();
 
 if (isset($_POST['submit'])) {
-    $addProducts->add_Product($_POST);
+    if($_POST['productType'] == 'DVD') {
+        $addDVD->add_Product($_POST);
+    } elseif($_POST['productType'] == 'Book') {
+        $addBook->add_Product($_POST);
+    } elseif($_POST['productType'] == 'Furniture') {
+        $addFurniture->add_Product($_POST);
+    }
 }
 ?>
 
@@ -54,7 +63,7 @@ $(document).ready(function(){
         <div>
             <form id="product_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data">
                 <div class="d-flex">
-                    <h2 class="mr-auto m-3">Product add</h2>
+                    <h2 class="mr-auto m-3 pl-5 pt-3">Product add</h2>
                     <button name="submit" type="submit" class="m-3 p-3 btn btn-outline-dark h-50">Save</button>
                     <a href="https://scanditestarmandsk.000webhostapp.com/index.php" class="m-3 p-3 btn btn-outline-dark h-50">Cancel</a>
                 </div>
@@ -101,7 +110,7 @@ $(document).ready(function(){
                     </div>
                     <div id="heightdiv" >
                         <label for="height">Height</label>
-                        <input type="height" name="height" id="height">
+                        <input type="number" name="height" id="height">
                         <p class="ml-5">"Product description"</p>
                     </div>
                 </div>
