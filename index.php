@@ -1,6 +1,6 @@
 <?php
 include "product_class.php";
-$addProducts = new Products();
+$addProducts = new Product();
 $display = $addProducts->displayProduct();
 
 if (isset($_POST['sku'])) {
@@ -11,6 +11,9 @@ if (isset($_POST['sku'])) {
     exit;
 
 }
+//$routes = [];
+//route('/', 'add-product')
+
 ?>
 <html lang="en">
 
@@ -26,14 +29,13 @@ if (isset($_POST['sku'])) {
     <div class="">
             <main class="">
                 <div class="d-flex">
-                    <h1 class="mr-auto p-2">Product List</h1>
-                    <a class="p-2 btn btn-outline-dark h-50" href="/add-product">ADD</a>
-                    <button class="p-2 btn btn-outline-dark h-50" id="delete-product-btn" form="delete-form" type="submit" name="sku">MASS DELETE</button>
+                    <h1 class="mr-auto m-3 pl-5 pt-3">Product List</h1>
+                    <a class="p-3 m-3 btn btn-outline-dark h-50" href="/add-product">ADD</a>
+                    <button class="p-3 m-3 btn btn-outline-dark h-50" id="delete-product-btn" form="delete-form" type="submit" name="sku">MASS DELETE</button>
                 </div>
-
-                <div class="d-flex align-content-center flex-wrap">
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-11">
+                <hr>
+                <!--<div class="d-flex flex-row align-content-center flex-wrap" style="background-color:green;">-->
+                    <div class="align-items-start justify-content-sm-center d-flex flex-row flex-nowrap align-content-center p-2">
                             <form id="delete-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                                 <?php
                                 if (count(array($display))) {
@@ -61,9 +63,8 @@ if (isset($_POST['sku'])) {
                                     <?php }}
                                  }?>
                             </form>
-                        </div>
                     </div>
-                </div>
+                <!--</div>-->
             </main>
         </div>
     </div>
